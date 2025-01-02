@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js</title>
+    <style>
+        .btn{
+            background-color: rgb(253, 149, 14);
+            border: 0;
+            padding: 5px 20px;
+            color: #fff;
+            margin: 20px;
+            cursor: pointer;
+        }
+        #display{
+            color: green;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h3>Module 1 Assignment</h3>
+
+    <input id="dicount" placeholder="Enter Your Amount " type="number"/>
+    <button class="btn" onclick="discount()">Check Discount</button>
+    <p id="display"></p>
+
+
+
+    <script>
+
+        // dicount js
+       
+       function discount(){
+        let discount = document.getElementById("dicount").value;
+        let display = document.getElementById("display");
+            if(discount<50){
+                display.innerHTML = "No Discount is applied"
+            } else if(discount >50 && discount<=100){
+                display.innerHTML = "Hurrah, You get 5% dicsount";
+            } else if(discount >100 && discount<=200){
+                display.innerHTML = "Hurrah, You get 10% dicsount";
+            } else if(discount>200){
+                display.innerHTML = "Hurrah, You get 15% dicsount";
+            } else{
+                 display.innerHTML = "No Discount is applied"
+            }
+       }
+
+    //    filtered Array even number
+
+       var origialArray = [12,34,45,23,6,78,54,90];
+       var evenNum = origialArray.filter(function(x){
+            return x%2===0;
+       });
+       document.write("Original Array "+origialArray +"</br>");
+       document.write("Filtered Even Number is "+evenNum+"</br> </br> </br>");
+
+    // multipication
+
+    var mul = 5;
+    document.write("multipication table for 5 "+"</br>")
+    for(var i=1;i<=10;i++){
+        
+        document.write(i +"*"+mul+" = "+i*mul+"</br>")
+    }
+
+    // Grade Calcolator 
+
+   function gradeScore(score){
+    var gscore;
+
+        switch(true){
+            case(score >=90 && score<=100) :
+            gscore = "A";
+            break;
+            case (score>=80 && score<=89): 
+            gscore = "B";
+            break;
+            case (score>=70 && score<=79): 
+            gscore = "C";
+            break;
+            case (score>=60 && score<=69): 
+            gscore = "D";
+            break;
+            default: return 'F'
+        }
+        return gscore
+   }
+
+  let results =gradeScore(89);
+    document.write("Grade is "+results)
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js assignment</title>
+</head>
+<body>
+
+    <h3> 01 Dom manipulation</h3>
+
+    <div id="dom">This is dom manipulation</div>
+    <button onclick="domManipulation()">Click </button>
+    <h3>02 Click Counter </h3>
+    <p id="counter"></p>
+    <button onclick="Counter()">Counter</button>
+    <h3>03 Image swicther </h3>
+    <img id="imgs" src="https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg" alt="image" width="300" height="300">
+    <button onclick="ImageOne()">change Image</button><button onclick="ImageTwo()">Change image</button>
+
+    <h3>04 Fetch JsonPlaceholder API</h3>
+    <p id="api"></p>
+    <script>
+        //DOM manipulation
+        function domManipulation(){
+            let dom = document.getElementById("dom");
+            dom.innerHTML = "DOM is manipulated"
+        }
+
+        // click counter 
+        let count = document.getElementById("counter");
+            let num = 0;
+            count.innerText = num;
+        function Counter(){
+            num++;
+            count.innerText = num;
+        }
+        // Image Switcher
+        function ImageOne(){
+            let img = document.getElementById("imgs");
+            img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFMS_oEah9610BMoecYZ3SDb41oC5_LG-YLPBMEBh9j6BEcppXqusDJurZ0mMaqDdl8Ag&usqp=CAU"
+        }
+        function ImageTwo(){
+            let img = document.getElementById("imgs");
+            img.src = "https://t4.ftcdn.net/jpg/03/17/25/45/360_F_317254576_lKDALRrvGoBr7gQSa1k4kJBx7O2D15dc.jpg"
+        }
+
+        // fetch Ajax Api
+        let url = "https://jsonplaceholder.typicode.com/posts";
+        fetchApi()
+
+        function fetchApi(){
+           fetch(url)
+           .then(res=>res.json())
+           .then(result=>{
+            let data = JSON.stringify(result);
+            console.log(data);
+           })
+            
+        }
+
+
+    </script>
+</body>
+</html>

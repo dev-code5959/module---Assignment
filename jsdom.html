@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js DOM</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+    
+
+    <script>
+
+            let url = "https://crud.teamrabbil.com/api/v1/ReadProduct";
+
+
+
+        //     GetRequestAysnc();
+        //     //function with async
+        //    async function  GetRequestAysnc (){
+        //          let data = await   fetch(url);
+        //          let res = await data.json();
+        //            document.write(JSON.stringify(res))
+        //         }
+
+                // promises function
+                // PromiseFunction()
+                // function PromiseFunction(){
+                //     fetch(url)
+                //     .then(res=>res.json())
+                //     .then(result=>{document.write(JSON.stringify(result))})
+                //     .catch(err=>{
+                //         console.log(err);
+                //     })
+                // }
+               /* asyncUsingAxios()
+            async function asyncUsingAxios(){
+             let  res =await axios.get(url);
+             let jsonData = res.data;
+             document.write(JSON.stringify(jsonData))
+            }
+             */
+
+            // axios  with promise
+           /* AxiosUsingPromise()
+            function AxiosUsingPromise(){
+                    axios.get(url)
+                    .then(res=>res.data)
+                    .then(jsonData=>document.write(JSON.stringify(jsonData)))
+                
+                
+            } */
+
+            // simple axiosFunction
+            simpleAxios()
+            function simpleAxios(){
+                axios.get(url).then((res)=>{
+                    let jsonData = res.data;
+                    document.write(JSON.stringify(jsonData))
+                })
+            }
+
+       
+    </script>
+</body>
+</html>

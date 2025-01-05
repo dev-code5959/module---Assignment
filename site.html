@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Resource</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .download-container {
+            width: 90%;
+            max-width: 600px;
+            background: #fff;
+            border: 2px dashed #d3b3ff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-container h2 {
+            font-size: 24px;
+            color: #4f2c97;
+            margin-bottom: 15px;
+        }
+
+        .download-container p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            flex: 1 1 calc(33% - 10px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group textarea {
+            flex: 1 1 100%;
+            resize: none;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #4f2c97;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .download-btn.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .download-btn:hover {
+            background: #3b2074;
+        }
+
+        @media (max-width: 768px) {
+            .form-group input {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="download-container">
+        <h2>Download This Resource</h2>
+        <p>Fill the form then click on the download now button. The file will be automatically delivered to your inputted mail address.</p>
+        <form id="downloadForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Delivery Email Address" required>
+                <input type="text" id="phone" placeholder="Phone Number (optional)">
+                <textarea id="message" rows="4" placeholder="Message"></textarea>
+            </div>
+            <a href="demo-file.zip" download="DemoFile" class="download-btn" id="downloadBtn">Download Now</a>
+        </form>
+    </div>
+
+    <script>
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        function validateForm() {
+            if (nameInput.value.trim() !== '' && emailInput.value.trim() !== '' && messageInput.value.trim() !== '') {
+                downloadBtn.classList.add('active');
+            } else {
+                downloadBtn.classList.remove('active');
+            }
+        }
+
+        document.getElementById('downloadForm').addEventListener('input', validateForm);
+    </script>
+</body>
+</html>
